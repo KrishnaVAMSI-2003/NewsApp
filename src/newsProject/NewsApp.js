@@ -9,15 +9,15 @@ export default function NewsApp() {
     const [news, setNews] = useState()
     const [input, setInput] = useState()
     const [pageNo, setPageNo] = useState(1)
-    const fetchNews = async() => {
-        const data = await fetch(`
-        https://newsapi.org/v2/everything?q=${search}&from=2023-06-10&sortBy=publishedAt&apiKey=8d569128218f497a9d7bb8cbf8f33177&pageSize=9&page=${pageNo}`)
-        const jsonData = await data.json()
-        setNews(jsonData.articles)
-        
-    }
+    
 
-    useEffect(()=>{
+    useEffect( ()=>{
+        const fetchNews = async() => {
+            const data = await fetch(`
+            https://newsapi.org/v2/everything?q=${search}&from=2023-06-10&sortBy=publishedAt&apiKey=8d569128218f497a9d7bb8cbf8f33177&pageSize=9&page=${pageNo}`)
+            const jsonData = await data.json()
+            setNews(jsonData.articles)
+        }
         fetchNews()
     },[search,pageNo])
 
