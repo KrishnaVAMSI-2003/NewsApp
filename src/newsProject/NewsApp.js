@@ -26,7 +26,7 @@ export default function NewsApp() {
                 setNews(jsonData.articles)
             }
             else
-                setNews(News.articles.filter((ele,index)=>index>=pageNo && index<pageNo+9))
+            setNews(News.articles.filter((ele,index)=>index>=pageNo && index<pageNo+9))
         }
         fetchNews()
     },[search,pageNo])
