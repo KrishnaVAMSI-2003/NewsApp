@@ -46,7 +46,7 @@
     margin:2rem 0 ;
     width:400px;
     overflow:hidden;
-    border:2px solid black;
+    border:2px solid rgb(80, 0, 33);
     border-radius: 10px;
     background: rgb(197, 255, 245);
 }
