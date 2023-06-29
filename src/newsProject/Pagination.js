@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from 'react'
+import './news.css'
 
 export default function Pagination(props) {
     const {pageNo,setPageNo} = props
     const [arr, setArr] = useState([])
     useEffect(()=>{
         setArr([])
-        for(let i=1;i<10;i++){
+        for(let i=1;i<12;i++){
             setArr(arr=>[...arr,i])
         }
     },[])
@@ -21,13 +22,13 @@ export default function Pagination(props) {
     //         setSt(st+10)   
     // }
     const prevNext = (val) => {
-        val==='-' && pageNo>0 &&setPageNo(pageNo-1)
+        val==='-' && pageNo>1 &&setPageNo(pageNo-1)
         val==='+' && pageNo<9 && setPageNo(pageNo+1)
     }
     
     
   return (
-    <div>
+    <div className='page-buttons'>
         <button onClick={()=>{prevNext('-')}}>prev</button>
         {/*<button title='previos 10 page numbers' onClick={()=>buttons('prev10')}>≤</button>*/}
         {arr.map((ele,index)=>{

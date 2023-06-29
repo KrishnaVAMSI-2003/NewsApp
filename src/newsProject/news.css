@@ -31,22 +31,21 @@
 }
 
 .container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    column-gap: 2.5rem;
+
     max-width:100%;
-    max-height: fit-content;
-    border-radius: 20px;
-    padding:10px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content:space-evenly;
+    border-radius: 0.5rem;
+    padding:2rem;
     background: rgb(219,242,255);
     background: linear-gradient(107deg, rgba(254, 180, 183, 0.959) 2%, rgba(184,184,184,1) 100%);
 }
     
 .card{
-    margin:2rem 0 ;
-    width:400px;
+    margin:1.3rem 0 ;
     overflow:hidden;
-    border:2px solid black;
+    border:2px solid rgb(80, 0, 33);
     border-radius: 10px;
     background: rgb(197, 255, 245);
 }
@@ -70,4 +69,20 @@
 .header h2{
     color:#330057;
     margin:10px 30px;
+}
+.render h2{
+    text-align: center;
+}
+.page-buttons{
+    text-align: center;
+}
+@media screen and (max-device-width:500px) {
+    .container{
+        grid-template-columns: auto;
+    }
+}
+@media screen and (min-device-width:500px)and (max-device-width:850px) {
+    .container{
+        grid-template-columns: auto auto;
+    }
 }
