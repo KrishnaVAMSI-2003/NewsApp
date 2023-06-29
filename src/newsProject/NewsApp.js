@@ -15,6 +15,19 @@ export default function NewsApp() {
     
 
     useEffect(()=>{
+        const fetchNews = async() => {
+            const date = new Date()
+            const searchdate = `${date.getFullYear()}-${date.getMonth()}-${date.getDate()}`
+            const data = await fetch(`
+            https://newsapi.org/v2/everything?q=${search}&from=${searchdate}&sortBy=publishedAt&apiKey=&pageSize=9&page=${pageNo}`)
+            const jsonData = await data.json()
+            if(jsonData.articles){
+                setApi(true)
+                setNews(jsonData.articles)
+            }
+            else
+                setNews(News.articles.filter((ele,index)=>index>=pageNo && index<pageNo+9))
+        }
         fetchNews()
     },[search,pageNo])
 
